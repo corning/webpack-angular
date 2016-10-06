@@ -10,8 +10,10 @@ hotnode app
 localhost:8000
 ```
 
-# TODO
-To Add unit test for this project
+# Unit Test
+``` bash
+npm test
+```
 
 # License
 MIT
