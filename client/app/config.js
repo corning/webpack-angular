@@ -10,12 +10,12 @@ var router=function ($routeProvider) {
     when('/',
         {
             template:require('./controllers/home/index.html'),
-            controller: HomeController
+            controller: ['$scope',HomeController]
         }).
     when('/about',
         {
             template:require('./controllers/about/index.html'),
-            controller: AboutController
+            controller: ['$scope',AboutController]
         }).
     otherwise({redirectTo:'/'});
 };
