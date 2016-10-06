@@ -15,17 +15,17 @@ require('bootstrap/dist/js/bootstrap');
 //import 'bootstrap/dist/js/bootstrap';
 
 /* App module */
-var app=angular.module('app',[route]);
+var app=angular.module('myApp',[route]);
 
 /* Directives */
 
 /* Services */
 import cacheService from './services/cacheService';
-app.service('cacheService',cacheService);
+app.service('cacheService',['$rootScope',cacheService]);
 
 /* App run */
 app.run(['$rootScope',function ($rootScope) {
-
+    
 }]);
 
 app.config(config);

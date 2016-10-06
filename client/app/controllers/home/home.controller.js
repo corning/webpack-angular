@@ -4,6 +4,6 @@
 module.exports=function ($scope) {
     require('./home.less');
     $scope.myData={
-        hello:'Hello...home...'
+        hello:'Home...'
     };  
 };

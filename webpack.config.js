@@ -4,6 +4,8 @@
 var webpack=require('webpack');
 var path=require('path');
 var ExtractTextPlugin=require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports={
     entry:{
         app:'./client/app/app.js'
@@ -11,10 +13,21 @@ module.exports={
     output:{
         path:path.join(__dirname,'/assets/dist'),
         filename:'app/[name].js',
-        publicPath:'../'
+        publicPath:'../',
+        pathInfo:false
     },
     plugins:[
-        new ExtractTextPlugin('styles/[name].css')
+        new ExtractTextPlugin('styles/[name].css'),
+        new webpack.optimize.UglifyJsPlugin({
+            compress:{
+                warnings:false
+            },
+            mangle:false
+        }),
+        new CopyWebpackPlugin([{
+            from: __dirname + '/client/assets',
+            to:__dirname+'/assets'
+        }])
     ],
     module:{
         loaders:[
