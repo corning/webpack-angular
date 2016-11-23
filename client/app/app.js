@@ -2,7 +2,11 @@
  * Created by Corning on 2016/6/23.
  */
 import angular from 'angular';
-import route from 'angular-route';
+import ngSanitize from 'angular-sanitize';
+import UIRouter from 'angular-ui-router';
+import material from 'angular-material';
+import animate from 'angular-animate';
+import aria from 'angular-aria';
 import config from './config';
 
 /* jQuery and components */
@@ -12,10 +16,10 @@ window.jQuery=window.jQuery||$;
 /* Bootstrap */
 import 'bootstrap/less/bootstrap.less';
 require('bootstrap/dist/js/bootstrap');
-//import 'bootstrap/dist/js/bootstrap';
+//import 'bootstrap/dist/js/bootstrap';//You can not import bootstrap like this
 
 /* App module */
-var app=angular.module('myApp',[route]);
+var app=angular.module('myApp',[UIRouter,material,animate,aria,ngSanitize]);
 
 /* Directives */
 
@@ -28,4 +32,4 @@ app.run(['$rootScope',function ($rootScope) {
     
 }]);
 
-app.config(config);
+app.config(['$stateProvider', '$urlRouterProvider',config]);

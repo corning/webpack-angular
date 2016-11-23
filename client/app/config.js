@@ -2,22 +2,17 @@
  * Created by Corning on 2016/6/25.
  */
 
-import HomeController from './controllers/home/home.controller';
-import AboutController from './controllers/about/about.controller';
+import HomeState from './controllers/home/home.state';
+import AboutState from './controllers/about/about.state';
 
-var router=function ($routeProvider) {
-    $routeProvider.
-    when('/',
-        {
-            template:require('./controllers/home/index.html'),
-            controller: ['$scope',HomeController]
-        }).
-    when('/about',
-        {
-            template:require('./controllers/about/index.html'),
-            controller: ['$scope',AboutController]
-        }).
-    otherwise({redirectTo:'/'});
+var router=function ($stateProvider,$urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider.
+    state(HomeState).
+    state(AboutState);
+
 };
 
 module.exports=router;
