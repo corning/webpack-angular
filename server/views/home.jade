@@ -1,22 +1,11 @@
 //
    Created by Corning on 2016/5/19.
 doctype html
-html(ng-app='myApp')
+html
     head
         title Angular Webpack Workflow
         meta(charset='utf-8')
         link(rel='stylesheet',href='/dist/styles/app.css')
     body
-        div.navbar.navbar-default
-            div.container-fluid
-                div.navbar-header
-                    div.navbar-brand
-                        i.glyphicon-yen.glyphicon
-                        a(href='#/') Angular
-                ul.nav.navbar-nav
-                    li
-                        a(href='#/') Home
-                    li
-                        a(href='#/about') About
-        div.container-fluid(ui-view)
+        div(ng-app='myApp',ui-view)
     script(src='/dist/app/app.js',type='text/javascript')
