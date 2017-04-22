@@ -19,7 +19,7 @@ require('bootstrap/dist/js/bootstrap');
 //import 'bootstrap/dist/js/bootstrap';//You can not import bootstrap like this
 
 /* App module */
-var app=angular.module('myApp',[UIRouter,material,animate,aria,ngSanitize]);
+var app=angular.module('myApp',[UIRouter,ngSanitize,material,animate,aria]);
 
 /* Directives */
 
@@ -29,7 +29,7 @@ app.service('cacheService',['$rootScope',cacheService]);
 
 /* App run */
 app.run(['$rootScope',function ($rootScope) {
-    
+
 }]);
 
 app.config(['$stateProvider', '$urlRouterProvider',config]);
